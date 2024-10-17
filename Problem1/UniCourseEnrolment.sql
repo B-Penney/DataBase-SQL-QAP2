@@ -76,4 +76,27 @@ VALUES
 (2, 4, '2021-09-03'),
 (3, 4, '2018-09-03');
 
-SELECT first_name || '' || last_name AS full_name FROM Making Christmas
+-- SQL Query for First and Last name
+SELECT first_name || '' || last_name AS full_name 
+JOIN enrolments ON students.id = enrolments.student_id
+JOIN courses ON enrolments.course_id = courses.course_id
+WHERE courses.course_name = 'Making Christmas';
+
+-- SQL Query for Full name of professor and courses they teach
+SELECT courses.course_name, professors.first_name || ' ' || professors.last_name AS prof_full_name
+FROM courses
+JOIN professors ON courses.professor_id = professors.professor_id;
+
+-- SQL Query for all courses with students enroled in them
+SELECT DISTINCT courses.course_name
+FROM courses
+JOIN enrolments ON courses.id = enrolments.course_id;
+
+-- Update email of student
+UPDATE students 
+SET email = 'thecoolemailstays@forever.com'
+WHERE student_id = 3 
+
+-- Delete student from course
+DELETE FROM enrollments 
+WHERE student_id = 5 AND course_id = 2 
