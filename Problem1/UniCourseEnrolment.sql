@@ -83,7 +83,7 @@ JOIN courses ON enrolments.course_id = courses.course_id
 WHERE courses.course_name = 'Making Christmas';
 
 -- SQL Query for Full name of professor and courses they teach
-SELECT courses.course_name, professors.first_name || ' ' || professors.last_name AS prof_full_name
+SELECT courses.course_name, professors.first_name || ' ' || professors.last_name AS professors_full_name
 FROM courses
 JOIN professors ON courses.professor_id = professors.professor_id;
 
